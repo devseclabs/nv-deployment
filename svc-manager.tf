@@ -5,7 +5,7 @@ resource "kubernetes_service" "neuvector-manager-service" {
   }
   spec {
     selector = {
-      app = "neuvector-service-webui"
+      app = "neuvector-manager-pod"
     }
     
     port {

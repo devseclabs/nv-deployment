@@ -14,6 +14,6 @@ resource "kubernetes_service" "neuvector-controller-worker-service" {
       protocol = "TCP"
     }
 
-    type = "LoadBalancer"
+    type = "ClusterIP"
   }
 }

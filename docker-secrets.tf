@@ -1,7 +1,7 @@
 #SECRET DOCKERHUB CONF
 resource "kubernetes_secret" "dockerhub" {
   metadata {
-    name = "docker-cfg"
+    name = "regsecret"
     namespace = var.ns
   }
 
