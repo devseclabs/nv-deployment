@@ -1,12 +1,18 @@
 resource "kubernetes_config_map" "nv-conf" {
   metadata {
-    name = "nv-conf"
+    name = "neuvector-init"
     namespace = var.ns
   }
 
   data = {
-    #license_key = var.license
-    "initcfg.yaml" = file("config/initcfg.yaml")
-  }
+    
+    #"eulainitcfg.yaml" = file("config/eula-data.txt")
+    "userinitcfg.yaml" = file("config/user-data.txt")
+    "eulainitcfg.yaml" = <<EOF
+    license_key: ${var.license}
+    EOF
 
+    
+  }
+  depends_on = [kubernetes_namespace.nv-ns]
 }

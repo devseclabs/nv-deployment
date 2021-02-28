@@ -79,5 +79,6 @@ resource "kubernetes_deployment" "neuvector-scanner" {
     } // end template 
   
   } // end resource spec
+  depends_on = [kubernetes_namespace.nv-ns]
 
 } // end resource

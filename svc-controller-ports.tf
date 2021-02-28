@@ -29,4 +29,5 @@ resource "kubernetes_service" "neuvector-controller-ports-service" {
     }
    
   }
+  depends_on = [kubernetes_namespace.nv-ns]
 }

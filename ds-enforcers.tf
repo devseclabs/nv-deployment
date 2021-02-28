@@ -138,5 +138,6 @@ resource "kubernetes_daemonset" "neuvector-enforcer" {
     } // end template 
 
   } //end resource spec
+  depends_on = [kubernetes_namespace.nv-ns]
 
 } // end ds resource

@@ -56,5 +56,5 @@ resource "kubernetes_cron_job" "neuvector-updater" {
     } // end job template 
   
   } // end resource spec
-
+  depends_on = [kubernetes_namespace.nv-ns]
 } // end cj resource

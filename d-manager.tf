@@ -51,5 +51,6 @@ resource "kubernetes_deployment" "neuvector-manager" {
     } // end template 
   
   } // end resource spec
+  depends_on = [kubernetes_namespace.nv-ns]
 
 } // end resource

@@ -16,4 +16,5 @@ resource "kubernetes_service" "neuvector-manager-service" {
 
     type = var.webui_svc_type
   }
+  depends_on = [kubernetes_namespace.nv-ns]
 }

@@ -17,4 +17,5 @@ resource "kubernetes_service" "neuvector-admission-service" {
 
     type = "ClusterIP"
   }
+  depends_on = [kubernetes_namespace.nv-ns]
 }

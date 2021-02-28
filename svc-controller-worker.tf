@@ -16,4 +16,5 @@ resource "kubernetes_service" "neuvector-controller-worker-service" {
 
     type = "ClusterIP"
   }
+  depends_on = [kubernetes_namespace.nv-ns]
 }

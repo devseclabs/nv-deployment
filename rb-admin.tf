@@ -14,5 +14,5 @@ resource "kubernetes_role_binding" "admin" {
     name      = "neuvector"
     namespace = "default"
   }
-
+  depends_on = [kubernetes_namespace.nv-ns]
 }
