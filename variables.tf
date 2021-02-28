@@ -51,3 +51,7 @@ variable "scanner_replicas" {
 variable "webui_svc_type" {
   default = "LoadBalancer"
 }
+
+variable "context" {
+  default = "my-context"
+}
