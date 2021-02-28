@@ -14,7 +14,7 @@ resource "kubernetes_service" "neuvector-manager-service" {
       protocol = "TCP"
     }
 
-    type = var.webui_svc_type
+    type = var.manager_svc_type
   }
   depends_on = [kubernetes_namespace.nv-ns]
 }

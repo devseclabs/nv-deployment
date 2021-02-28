@@ -48,7 +48,7 @@ variable "scanner_replicas" {
   default = 1
 }
 
-variable "webui_svc_type" {
+variable "manager_svc_type" {
   default = "LoadBalancer"
 }
 

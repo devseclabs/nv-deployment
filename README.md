@@ -14,6 +14,10 @@ Terraform Neuvector Deployment with License Key and Test Pods
 2. Adjust your values in   ```terraform.tfvars.tpl```
     - configure your dockerhub crendentials
     - configure your k8s context to deploy (default path: ~/.kube/config)
+    - neuvector basic configuration
+        - manager service type
+        - scanner and controller replicas
+        - neuvector version
     - add your license key 
 3. Rename the file to `terraform.tfvars`
 4. Deploy and Manage your deployment using terraform:
