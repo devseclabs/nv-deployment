@@ -20,6 +20,9 @@ variable "image_name" {
     default = "neuvector/updater"
 }
 
+
+variable "license" {}
+
 variable "commands" {
   default= ["/bin/sh", "-c", "TOKEN=`cat /var/run/secrets/kubernetes.io/serviceaccount/token`; /usr/bin/curl -kv -X PATCH -H \"Authorization:Bearer $TOKEN\" -H \"Content-Type:application/strategic-merge-patch+json\" -d '{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"kubectl.kubernetes.io/restartedAt\":\"'`date +%Y-%m-%dT%H:%M:%S%z`'\"}}}}}' 'https://kubernetes.default/apis/apps/v1/namespaces/neuvector/deployments/neuvector-scanner-pod'"]
 }

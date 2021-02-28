@@ -6,6 +6,7 @@
 *.tfstate.*
 terraform.tfvars
 .terraform.lock.hcl
+config/initcfg.yaml
 # Crash log files
 crash.log
 
