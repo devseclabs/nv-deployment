@@ -4,9 +4,12 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
-
+terraform.tfvars
+.terraform.lock.hcl
+config/initcfg.yaml
 # Crash log files
 crash.log
+*.txt
 
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
