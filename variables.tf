@@ -41,7 +41,7 @@ variable "nv_version" {
 }
 
 variable "controller_replicas" {
-  default = 1
+  default = 3
 }
 
 variable "scanner_replicas" {

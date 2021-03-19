@@ -17,6 +17,10 @@ resource "kubernetes_secret" "dockerhub" {
 DOCKER
   }
 
+  # data = {
+  #   ".dockerconfigjson" = "${file("${path.module}/.docker/config.json")}"
+  # }
+
   type = "kubernetes.io/dockerconfigjson"
   depends_on = [kubernetes_namespace.nv-ns]
 }
