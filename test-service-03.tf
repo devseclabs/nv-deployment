@@ -1,6 +1,7 @@
 resource "kubernetes_service" "test-svc-03" {
   metadata {
     name = "node"
+    namespace = var.test-ns
   }
   spec {
     selector = {

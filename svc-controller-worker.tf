@@ -1,7 +1,7 @@
 resource "kubernetes_service" "neuvector-controller-worker-service" {
   metadata {
     name = "neuvector-service-controller-fed-worker"
-    namespace = "neuvector"
+    namespace = var.ns
   }
   spec {
     selector = {

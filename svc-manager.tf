@@ -1,7 +1,7 @@
 resource "kubernetes_service" "neuvector-manager-service" {
   metadata {
     name = "neuvector-service-webui"
-    namespace = "neuvector"
+    namespace = var.ns
   }
   spec {
     selector = {

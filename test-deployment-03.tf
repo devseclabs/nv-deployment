@@ -1,11 +1,11 @@
 resource "kubernetes_deployment" "test-deployment-03" {
   metadata {
     name = "node-pod"
-    
+    namespace = var.test-ns
   }
 
   spec {
-    replicas = 1
+    replicas = 2
 
     selector {
       match_labels = {

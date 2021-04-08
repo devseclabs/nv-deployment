@@ -2,7 +2,7 @@ resource "kubernetes_deployment" "neuvector-controller" {
   
   metadata {
     name = "neuvector-controller-pod"
-    namespace = "neuvector"
+    namespace = var.ns
 
   }
 

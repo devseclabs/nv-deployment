@@ -1,6 +1,7 @@
 resource "kubernetes_service" "test-svc-02" {
   metadata {
     name = "redis"
+    namespace = var.test-ns
   }
   spec {
     selector = {

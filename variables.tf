@@ -8,6 +8,10 @@ variable "ns" {
   default = "neuvector" 
 }
 
+variable "test-ns" {
+  default = "demo" 
+}
+
 variable "cron"{
     default = "0 0 * * *"
 }
