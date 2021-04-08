@@ -47,6 +47,10 @@ variable "registry_password" {
   sensitive = true
 }
 
+variable "pass" {
+  sensitive = true
+}
+
 variable "nv_version" {
   default = "latest"
 }
