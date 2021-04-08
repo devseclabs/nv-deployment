@@ -63,6 +63,10 @@ variable "scanner_replicas" {
   default = 1
 }
 
+variable "test_replicas" {
+  default = 1
+}
+
 variable "manager_svc_type" {
   default = "LoadBalancer"
 }
