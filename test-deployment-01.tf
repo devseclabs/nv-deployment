@@ -32,4 +32,5 @@ resource "kubernetes_deployment" "test-deployment-01" {
       }
     }
   }
+  depends_on = [kubernetes_namespace.test-ns]
 }

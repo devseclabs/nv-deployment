@@ -16,4 +16,5 @@ resource "kubernetes_service" "test-svc-03" {
 
     type = "NodePort"
   }
+  depends_on = [kubernetes_namespace.test-ns]
 }
