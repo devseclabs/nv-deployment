@@ -6,10 +6,16 @@ locals {
 
   user_yaml = yamlencode({
     users = {
-      Fullname = "admin"
-      Password = var.pass
-      Role  = "admin"
-      Timeout = 3600
+      - EMail = "achacon@neuvector.com"
+        Fullname = "achacon"
+        Locale  = "en"
+        Password  = "a31415927"
+        Role  = "reader"
+        Timeout = 3600
+      - Fullname = "admin"
+        Password = var.pass
+        Role  = "admin"
+        Timeout = 3600
     }
   })
 }
