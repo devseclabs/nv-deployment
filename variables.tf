@@ -25,6 +25,9 @@ variable "image_name" {
     default = "neuvector/updater"
 }
 
+variable "enable_config" {
+  default = false
+}
 
 variable "license" {
   sensitive = true

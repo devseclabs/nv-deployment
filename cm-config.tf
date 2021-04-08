@@ -5,19 +5,23 @@ locals {
   })
 
   user_yaml = yamlencode({
-    users = {
-      - EMail = "achacon@neuvector.com"
-        Fullname = "achacon"
-        Locale  = "en"
-        Password  = "a31415927"
-        Role  = "reader"
+    users = [
+      {
+        Email = "test1@nv.com", 
+        Fullname = "achacon", 
+        Password  = var.pass, 
+        Role  = "reader", 
         Timeout = 3600
-      - Fullname = "admin"
-        Password = var.pass
-        Role  = "admin"
+      },
+      {
+        Fullname = "admin", 
+        Password = var.pass, 
+        Role  = "admin", 
         Timeout = 3600
-    }
+      }
+    ]
   })
+
 }
 
 resource "kubernetes_config_map" "nv-conf" {
