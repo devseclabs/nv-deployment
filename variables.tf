@@ -51,6 +51,7 @@ variable "registry_password" {
 }
 
 variable "pass" {
+  default = "admin"
   sensitive = true
 }
 
