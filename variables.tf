@@ -17,7 +17,8 @@ variable "cron"{
 }
 
 variable "docker_secret" {
-    default = "regsecret" 
+    default = "regsecret"
+    sensitive = true 
 }
 
 variable "image_name" {
@@ -25,7 +26,9 @@ variable "image_name" {
 }
 
 
-variable "license" {}
+variable "license" {
+  sensitive = true
+}
 
 variable "commands" {
   default= ["/bin/sh", "-c", "TOKEN=`cat /var/run/secrets/kubernetes.io/serviceaccount/token`; /usr/bin/curl -kv -X PATCH -H \"Authorization:Bearer $TOKEN\" -H \"Content-Type:application/strategic-merge-patch+json\" -d '{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"kubectl.kubernetes.io/restartedAt\":\"'`date +%Y-%m-%dT%H:%M:%S%z`'\"}}}}}' 'https://kubernetes.default/apis/apps/v1/namespaces/neuvector/deployments/neuvector-scanner-pod'"]
@@ -37,8 +40,12 @@ variable "registry_server" {
     default = "https://index.docker.io/v1/"
 }
 
-variable "registry_username" {}
-variable "registry_password" {}
+variable "registry_username" {
+  sensitive = true
+}
+variable "registry_password" {
+  sensitive = true
+}
 
 variable "nv_version" {
   default = "latest"
