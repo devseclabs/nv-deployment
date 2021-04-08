@@ -1,4 +1,4 @@
-resource "kubernetes_namespace" "nv-ns" {
+resource "kubernetes_namespace" "test-ns" {
   metadata {
     
     labels = {
