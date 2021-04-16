@@ -8,3 +8,6 @@ resource "kubernetes_namespace" "test-ns" {
     name = var.test-ns
   }
 }
+provisioner "local-exec" {
+    command = "kubectl -f testpod-crd.yaml"
+  }
