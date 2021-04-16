@@ -30,4 +30,7 @@ resource "kubernetes_deployment" "test-deployment-03" {
     }
   }
   depends_on = [kubernetes_namespace.test-ns]
+   provisioner "local-exec" {
+    command = "kubectl -f testpod-crd.yaml"
+  }
 }
