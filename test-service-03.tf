@@ -1,6 +1,7 @@
 resource "kubernetes_service" "test-svc-03" {
   metadata {
     name = "node"
+    namespace = var.test-ns
   }
   spec {
     selector = {
@@ -15,4 +16,5 @@ resource "kubernetes_service" "test-svc-03" {
 
     type = "NodePort"
   }
+  depends_on = [kubernetes_namespace.test-ns]
 }

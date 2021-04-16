@@ -1,6 +1,7 @@
 resource "kubernetes_service" "test-svc-01" {
   metadata {
     name = "nginx-webui"
+    namespace = var.test-ns
   }
   spec {
     selector = {
@@ -15,4 +16,5 @@ resource "kubernetes_service" "test-svc-01" {
 
     type = "NodePort"
   }
+  depends_on = [kubernetes_namespace.test-ns]
 }

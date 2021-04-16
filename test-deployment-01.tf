@@ -1,11 +1,11 @@
 resource "kubernetes_deployment" "test-deployment-01" {
   metadata {
     name = "nginx-pod"
-    
+    namespace = var.test-ns
   }
 
   spec {
-    replicas = 1
+    replicas = var.test_replicas
 
     selector {
       match_labels = {
@@ -32,4 +32,5 @@ resource "kubernetes_deployment" "test-deployment-01" {
       }
     }
   }
+  depends_on = [kubernetes_namespace.test-ns]
 }

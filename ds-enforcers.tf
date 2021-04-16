@@ -1,7 +1,7 @@
 resource "kubernetes_daemonset" "neuvector-enforcer" {
   metadata {
     name      = "neuvector-enforcer-pod"
-    namespace = "neuvector"
+    namespace = var.ns
   }
 
   spec {

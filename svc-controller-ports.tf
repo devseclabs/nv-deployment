@@ -1,7 +1,7 @@
 resource "kubernetes_service" "neuvector-controller-ports-service" {
   metadata {
     name = "neuvector-svc-controller"
-    namespace = "neuvector"
+    namespace = var.ns
   }
   spec {
     selector = {

@@ -1,8 +1,12 @@
+locals {
+  cm = var.enable_config == true ? false : true
+}
+
 resource "kubernetes_deployment" "neuvector-controller" {
   
   metadata {
     name = "neuvector-controller-pod"
-    namespace = "neuvector"
+    namespace = var.ns
 
   }
 
@@ -153,7 +157,7 @@ resource "kubernetes_deployment" "neuvector-controller" {
           name = "config-volume"
           config_map {
             name = "neuvector-init"
-            optional = true
+            optional = local.cm
           }
         }
 

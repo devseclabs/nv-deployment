@@ -1,7 +1,7 @@
 resource "kubernetes_service" "neuvector-admission-service" {
   metadata {
     name = "neuvector-svc-admission-webhook"
-    namespace = "neuvector"
+    namespace = var.ns
   }
   spec {
     selector = {

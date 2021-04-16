@@ -1,7 +1,7 @@
 resource "kubernetes_service" "neuvector-crd-service" {
   metadata {
     name = "neuvector-svc-crd-webhook"
-    namespace = "neuvector"
+    namespace = var.ns
   }
   spec {
     selector = {
