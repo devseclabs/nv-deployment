@@ -10,8 +10,8 @@ resource "kubernetes_cluster_role_binding" "neuvector-binding-admission" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = "neuvector"
-    namespace = "default"
+    name      = "default"
+    namespace = "neuvector"
   }
   depends_on = [kubernetes_cluster_role.neuvector-cr-admission] 
 }

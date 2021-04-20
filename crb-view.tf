@@ -10,8 +10,8 @@ resource "kubernetes_cluster_role_binding" "neuvector-binding-view" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = "neuvector"
-    namespace = "default"
+    name      = "default"
+    namespace = "neuvector"
   }
  
 }
