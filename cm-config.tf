@@ -7,7 +7,8 @@ locals {
   user_yaml = yamlencode({
     users = [
       {
-        Fullname = "demo",
+        Email = "test1@nv.com", 
+        Fullname = "myuser", 
         Password = var.reader_pass,
         Role  = "reader",
         Timeout = 3600
