@@ -4,7 +4,7 @@ resource "kubernetes_cluster_role" "neuvector-cr-sec-rules" {
   }
 
   rule {
-    api_groups = [""]
+    api_groups = ["neuvector.com"]
     resources  = ["nvsecurityrules","nvclustersecurityrules"]
     verbs      = ["list", "delete"]
   }
