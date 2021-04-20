@@ -50,8 +50,13 @@ variable "registry_password" {
   sensitive = true
 }
 
-variable "pass" {
+variable "admin_pass" {
   default = "admin"
+  sensitive = true
+}
+
+variable "reader_pass" {
+  default = "demo"
   sensitive = true
 }
 
@@ -60,15 +65,15 @@ variable "nv_version" {
 }
 
 variable "controller_replicas" {
-  default = 1
+  default = 3
 }
 
 variable "scanner_replicas" {
-  default = 1
+  default = 3
 }
 
 variable "test_replicas" {
-  default = 1
+  default = 2
 }
 
 variable "manager_svc_type" {
