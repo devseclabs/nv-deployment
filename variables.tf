@@ -56,7 +56,7 @@ variable "admin_pass" {
 }
 
 variable "reader_pass" {
-  default = "demo"
+  default = "demouser123"
   sensitive = true
 }
 

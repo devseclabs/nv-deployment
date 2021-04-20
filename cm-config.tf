@@ -8,7 +8,7 @@ locals {
     users = [
       {
         Email = "test1@nv.com", 
-        Fullname = "myuser", 
+        Fullname = "readeruser", 
         Password = var.reader_pass,
         Role  = "reader",
         Timeout = 3600
