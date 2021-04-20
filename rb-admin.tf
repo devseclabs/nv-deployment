@@ -11,8 +11,8 @@ resource "kubernetes_role_binding" "admin" {
  
   subject {
     kind      = "ServiceAccount"
-    name      = "default"
-    namespace = "neuvector"
+    name      = "neuvector"
+    namespace = "default"
   }
   depends_on = [kubernetes_namespace.nv-ns]
 }

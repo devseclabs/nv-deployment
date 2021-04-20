@@ -10,8 +10,8 @@ resource "kubernetes_cluster_role_binding" "neuvector-binding-customresourcedefi
 
   subject {
     kind      = "ServiceAccount"
-    name      = "default"
-    namespace = "neuvector"
+    name      = "neuvector"
+    namespace = "default"
   }
   depends_on = [kubernetes_cluster_role.neuvector-cr-customresourcedefinition]
 }
