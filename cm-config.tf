@@ -7,21 +7,19 @@ locals {
   user_yaml = yamlencode({
     users = [
       {
-        Email = "test@nv.com", 
-        Fullname = "demo", 
+        Fullname = "demo",
         Password = var.reader_pass,
-        Role  = "reader", 
+        Role  = "reader",
         Timeout = 3600
       },
       {
-        Fullname = "admin", 
-        Password = var.admin_pass, 
-        Role  = "admin", 
+        Fullname = "admin",
+        Password = var.admin_pass,
+        Role  = "admin",
         Timeout = 3600
       }
     ]
   })
-
 }
 
 resource "kubernetes_config_map" "nv-conf" {
