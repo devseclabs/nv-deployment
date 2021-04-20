@@ -3,7 +3,7 @@ resource "kubernetes_cluster_role_binding" "neuvector-binding-rbac" {
     name = "neuvector-binding-rbac"
   }
   role_ref {
-    api_group = ""
+    api_group = "rbac.authorization.k8s.io"
     kind      = "ClusterRole"
     name      = "neuvector-binding-rbac"
   }

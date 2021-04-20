@@ -4,7 +4,7 @@ resource "kubernetes_role_binding" "admin" {
     namespace = var.ns
   }
   role_ref {
-    api_group = ""
+    api_group = "rbac.authorization.k8s.io"
     kind      = "Role"
     name      = "admin"
   }

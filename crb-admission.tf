@@ -3,7 +3,7 @@ resource "kubernetes_cluster_role_binding" "neuvector-binding-admission" {
     name = "neuvector-binding-admission"
   }
   role_ref {
-    api_group = ""
+    api_group = "admissionregistration.k8s.io"
     kind      = "ClusterRole"
     name      = "neuvector-binding-admission"
   }

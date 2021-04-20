@@ -3,7 +3,7 @@ resource "kubernetes_cluster_role_binding" "neuvector-binding-customresourcedefi
     name = "neuvector-binding-customresourcedefinition"
   }
   role_ref {
-    api_group = ""
+    api_group = "apiextensions.k8s.io"
     kind      = "ClusterRole"
     name      = "neuvector-binding-customresourcedefinition"
   }
