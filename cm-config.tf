@@ -9,7 +9,7 @@ locals {
       {
         Email = "demo@nv.com", 
         Fullname = "demouser", 
-        Password  = var.reader_pass, 
+        Password = var.reader_pass, 
         Role  = "reader", 
         Timeout = 3600
       },
