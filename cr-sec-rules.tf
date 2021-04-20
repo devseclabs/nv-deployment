@@ -4,7 +4,7 @@ resource "kubernetes_cluster_role" "neuvector-cr-sec-rules" {
   }
 
   rule {
-    api_groups = ["rbac.authorization.k8s.io"]
+    api_groups = [""]
     resources  = ["nvsecurityrules","nvclustersecurityrules"]
     verbs      = ["list", "delete"]
   }

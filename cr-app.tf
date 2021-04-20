@@ -4,7 +4,7 @@ resource "kubernetes_cluster_role" "neuvector-cr-app" {
   }
 
   rule {
-    api_groups = ["rbac.authorization.k8s.io"]
+    api_groups = [""]
     resources  = ["namespaces", "pods", "nodes","services"]
     verbs      = ["get", "list", "watch","update"]
   }

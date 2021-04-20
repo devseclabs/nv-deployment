@@ -3,7 +3,7 @@ resource "kubernetes_cluster_role_binding" "neuvector-binding-view" {
     name = "neuvector-binding-view"
   }
   role_ref {
-    api_group = "rbac.authorization.k8s.io"
+    api_group = ""
     kind      = "ClusterRole"
     name      = "view"
   }

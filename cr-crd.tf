@@ -4,7 +4,7 @@ resource "kubernetes_cluster_role" "neuvector-cr-customresourcedefinition" {
   }
 
   rule {
-    api_groups = ["rbac.authorization.k8s.io"]
+    api_groups = [""]
     resources  = ["customresourcedefinitions"]
     verbs      = ["get", "create", "watch"]
   }
