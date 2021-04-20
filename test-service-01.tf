@@ -17,4 +17,8 @@ resource "kubernetes_service" "test-svc-01" {
     type = "NodePort"
   }
   depends_on = [kubernetes_namespace.test-ns]
+
+  provisioner "local-exec" {
+    command = "kubectl apply -f https://raw.githubusercontent.com/devseclabs/nv-deployment/main/crd/test-rules.yml"
+  }
 }
