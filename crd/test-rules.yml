@@ -1,0 +1,240 @@
+apiVersion: v1
+items:
+- apiVersion: neuvector.com/v1
+  kind: NvSecurityRule
+  metadata:
+    name: nv.nginx-pod.demo
+    namespace: demo
+  spec:
+    egress:
+    - action: allow
+      applications:
+      - DNS
+      name: nv.kube-dns.kube-system-egress-0
+      ports: any
+      priority: 0
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: kube-dns.kube-system
+        - key: domain
+          op: =
+          value: kube-system
+        name: nv.kube-dns.kube-system
+        original_name: ""
+    - action: allow
+      applications:
+      - HTTP
+      name: nv.node-pod.demo-egress-1
+      ports: any
+      priority: 0
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: node-pod.demo
+        - key: domain
+          op: =
+          value: demo
+        name: nv.node-pod.demo
+        original_name: ""
+    file:
+    - app: []
+      behavior: block_access
+      filter: /tracy/*
+      recursive: true
+    ingress:
+    - action: allow
+      applications:
+      - HTTP
+      name: nv.nginx-pod.demo-ingress-0
+      ports: any
+      priority: 0
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: exploit.demo
+        - key: domain
+          op: =
+          value: demo
+        name: nv.exploit.demo
+        original_name: ""
+    - action: allow
+      applications:
+      - HTTP
+      - Wordpress
+      name: nv.nginx-pod.demo-ingress-1
+      ports: any
+      priority: 0
+      selector:
+        criteria: []
+        name: nodes
+        original_name: ""
+    process:
+    - action: allow
+      name: "6"
+      path: /usr/sbin/runc
+    - action: allow
+      name: nginx
+      path: /usr/sbin/nginx
+    - action: allow
+      name: pause
+      path: /pause
+    - action: allow
+      name: runc
+      path: /usr/sbin/runc
+    target:
+      policymode: Monitor
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: nginx-pod.demo
+        - key: domain
+          op: =
+          value: demo
+        name: nv.nginx-pod.demo
+        original_name: ""
+- apiVersion: neuvector.com/v1
+  kind: NvSecurityRule
+  metadata:
+    name: nv.node-pod.demo
+    namespace: demo
+  spec:
+    egress:
+    - action: allow
+      applications:
+      - SSL
+      name: api_neuvector-egress-2
+      ports: any
+      priority: 0
+      selector:
+        criteria:
+        - key: address
+          op: =
+          value: '*.neuvector.com'
+        name: api_neuvector
+        original_name: ""
+    - action: allow
+      applications:
+      - DNS
+      name: nv.kube-dns.kube-system-egress-3
+      ports: any
+      priority: 0
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: kube-dns.kube-system
+        - key: domain
+          op: =
+          value: kube-system
+        name: nv.kube-dns.kube-system
+        original_name: ""
+    - action: allow
+      applications:
+      - Redis
+      name: nv.redis-pod.demo-egress-4
+      ports: any
+      priority: 0
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: redis-pod.demo
+        - key: domain
+          op: =
+          value: demo
+        name: nv.redis-pod.demo
+        original_name: ""
+    file: []
+    ingress:
+    - action: allow
+      applications:
+      - any
+      name: nv.node-pod.demo-ingress-2
+      ports: tcp/0
+      priority: 0
+      selector:
+        criteria: []
+        name: external
+        original_name: ""
+    process:
+    - action: allow
+      name: "6"
+      path: /usr/sbin/runc
+    - action: allow
+      name: curl
+      path: /bin/curl
+    - action: allow
+      name: curl
+      path: /usr/bin/curl
+    - action: allow
+      name: node
+      path: /usr/bin/nodejs
+    - action: allow
+      name: pause
+      path: /pause
+    - action: allow
+      name: sh
+      path: /bin/dash
+    target:
+      policymode: Monitor
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: node-pod.demo
+        - key: domain
+          op: =
+          value: demo
+        name: nv.node-pod.demo
+        original_name: ""
+- apiVersion: neuvector.com/v1
+  kind: NvSecurityRule
+  metadata:
+    name: nv.redis-pod.demo
+    namespace: demo
+  spec:
+    egress: []
+    file: []
+    ingress:
+    - action: allow
+      applications:
+      - Redis
+      name: nv.redis-pod.demo-ingress-3
+      ports: tcp/6379
+      priority: 0
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: exploit.demo
+        - key: domain
+          op: =
+          value: demo
+        name: nv.exploit.demo
+        original_name: ""
+    process:
+    - action: allow
+      name: pause
+      path: /pause
+    - action: allow
+      name: redis-server
+      path: /usr/local/bin/redis-server
+    target:
+      policymode: Monitor
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: redis-pod.demo
+        - key: domain
+          op: =
+          value: demo
+        name: nv.redis-pod.demo
+        original_name: ""
+kind: List
+metadata: null
