@@ -25,6 +25,10 @@ variable "image_name" {
     default = "neuvector/updater"
 }
 
+variable "containerd" {
+  default = false
+}
+
 variable "enable_config" {
   default = false
 }

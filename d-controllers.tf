@@ -124,7 +124,7 @@ resource "kubernetes_deployment" "neuvector-controller" {
           
           volume_mount {
             name = "docker-sock"
-            mount_path = "/var/run/docker.sock"
+            mount_path = var.containerd ? "/var/run/containerd/containerd.sock" :"/var/run/docker.sock"
             read_only = true
           }
 
@@ -164,7 +164,7 @@ resource "kubernetes_deployment" "neuvector-controller" {
         volume {
           name = "docker-sock"
           host_path {
-            path = "/var/run/docker.sock"
+            path = var.containerd ? "/var/run/containerd/containerd.sock" :"/var/run/docker.sock"
           }
         }
 
